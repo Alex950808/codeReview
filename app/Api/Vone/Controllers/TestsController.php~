@@ -1,0 +1,81 @@
+<?php
+namespace App\Api\Vone\Controllers;
+
+use App\Api\Vone\Transformers\TestsTransformer;
+use App\Model\Vone\AdminUserModel;
+use App\Model\Vone\GoodsCodeModel;
+use App\Model\Vone\GoodsModel;
+use App\Model\Vone\planModel;
+use App\Model\Vone\RoleUserModel;
+use App\Model\Vone\RealPurchaseModel;
+use App\Model\Vone\SaleUserAccountModel;
+use App\Model\Vone\SortDataModel;
+use App\Model\Vone\UserSortGoodsModel;
+use Dingo\Api\Contract\Http\Request;
+use Illuminate\Support\Facades\Redis;
+use App\Modules\Erp\ErpApi;
+use App\Model\Vone\GoodsSpecModel;
+use App\Model\Vone\MisOrderSubModel;
+use App\Model\Vone\MisOrderGoodsModel;
+use App\Model\Vone\SpotGoodsModel;
+use App\Model\Vone\DemandGoodsModel;
+use App\Model\Vone\MisOrderSubGoodsModel;
+use App\Model\Vone\ConversionStatisticsModel;
+use App\Model\Vone\OrderInfoModel;
+use App\Model\Vone\GoodsIntegralModel;
+use App\Model\Vone\DepartSortGoodsModel;
+use App\Model\Vone\SpotOrderModel;
+use App\Model\Vone\MisOrderModel;
+use App\Model\Vone\PurchaseChannelModel;
+use App\Model\Vone\OrdNewGoodsModel;
+use App\Model\Vone\DemandModel;
+use App\Model\Design\SingleModel;
+
+use JWTAuth;
+
+use Symfony\Component\HttpFoundation\Response;
+
+//create by zhangdong on the 2018.06.22
+class TestsController extends BaseController
+{
+    /*
+     * @desc:娴嬭瘯
+     * @author:zhangdong
+     * @date:2019.01.02
+     * */
+    public function index(Request $request)
+    {
+        $filePath = 'D:\wamp64\www\sjcj\test.php';
+        $fileText = file_get_contents($filePath,'',null,770900,12800);
+        $pattern = '#<img[^>]+>#';
+        //鍘绘帀鍥剧墖
+        $html = preg_replace ($pattern , "" , $fileText);
+        //鍘婚櫎js鑴氭湰
+        $pattern = '/<script[^>]*?>.*?<\/script>/si';
+        $html = preg_replace ($pattern , "" , $html);
+        //璇诲彇鍟嗗搧鍚嶇О
+        $goodsName = strstr('h3',$html);
+	//这个地方我只做测试用
+        echo($goodsName);die;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}//end of class
